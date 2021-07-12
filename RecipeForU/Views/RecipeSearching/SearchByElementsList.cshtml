@@ -1,0 +1,62 @@
+﻿@model IEnumerable<RecipeForU.Models.RECIPE>
+@using DevStudio;
+@using RecipeForU.Models;
+
+@{
+    ViewBag.Title = "搜尋結果";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+    int count = 1;
+}
+
+<div class="row margin-top-login">
+    <div class="col-10 offset-1">
+        <div class="panel panel-default box-shadow">
+            <div class="row panel-heading admin-list-heading">
+                <div class="col-7 col-md-6 offset-md-3 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
+            </div>
+            <div class="row panel-body admin-list-body">
+                <table class="col-12 table">
+                    <tr>
+                        <th>編號</th>
+                        <th>@Html.DisplayNameFor(model => model.recipe_cover)</th>
+                        <th>@Html.DisplayNameFor(model => model.recipe_name)</th>
+                        <th>@Html.DisplayNameFor(model => model.recipe_author)</th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @count
+                            </td>
+                            <td>
+                                <a href="@Url.Content("~/Recipe/RecipeDetail/" + item.recipe_id)">
+                                    <img class="mainimage" src="@RecipeDetails.GetRecipeImage(item.recipe_id)" style="max-width: 50%;width: 100px;" />
+                                </a>
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.recipe_name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.recipe_author)
+                            </td>
+                        </tr>
+
+                        count++;
+                    }
+
+                </table>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="categories__pagination">
+                        <a href="#">1</a>
+                        <a href="#">2</a>
+                        <a href="#">3</a>
+                        <a href="#">Next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewBag.Title = "上傳圖片";
+    Layout = "~/Views/Shared/_LayoutLite.cshtml";
+}
+
+<link href="@Url.Content("~/Content/FileUpload.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/FileUpload.js")"></script>
+
+<div class="container file-upload">
+    @using (Html.BeginForm("Uploadimage", "Image", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+    <div class="row margin-top-login">
+        <div class="col-12 col-md-8 offset-md-2">
+            <div class="panel panel-primary box-shadow">
+                <div class="panel-heading">
+                    <div class="row panel-heading admin-list-heading">
+                        <div class="col-12 d-flex justify-content-center align-items-center admin-list-title">@ImageService.ImageTitle</div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="image-upload-wrap">
+                        <input type="file" name="file" id="file" class="form-control file-upload-input" onchange="readURL(this);" accept="image/*" />
+                        <div class="drag-text">
+                            <h3>選擇圖片</h3>
+                        </div>
+                    </div>
+                    <div class="file-upload-content">
+                        <img class="file-upload-image" src="#" alt="your image" />
+                        <div class="image-title-wrap">
+                            <button type="button" onclick="removeUpload()" class="remove-image">移除 <span class="image-title">上傳圖片</span></button>
+                        </div>
+                    </div>
+                    <hr />
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <input type="submit" value="上傳檔案" class="table-btn" />
+                            @if (!string.IsNullOrEmpty(ImageService.ReturnAreaName))
+                            {
+                                @Html.ActionLink("取消上傳", ImageService.ReturnActionName, ImageService.ReturnControllerName, new { area = ImageService.ReturnAreaName }, new { @class = "site-btn" })
+                            }
+                            else
+                            {
+                                @Html.ActionLink("取消上傳", ImageService.ReturnActionName, ImageService.ReturnControllerName, null, new { @class = "site-btn" })
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    }
+
+</div>

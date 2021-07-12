@@ -1,0 +1,425 @@
+﻿@using DevStudio;
+@using RecipeForU.Models;
+@{
+    ViewBag.Title = "首頁";
+
+    string monthToEn(int month)
+    {
+        switch (month)
+        {
+            case 1: return "JAN";
+            case 2: return "FEB";
+            case 3: return "MAR";
+            case 4: return "APR";
+            case 5: return "MAY";
+            case 6: return "JUN";
+            case 7: return "JUL";
+            case 8: return "AUG";
+            case 9: return "SEP";
+            case 10: return "OCT";
+            case 11: return "NOV";
+            case 12: return "DEC";
+            default: return "none";
+        }
+    }
+}
+
+<!-- Hero Section Begin -->
+<section class="hero">
+    <!--  改了main.js，拿掉箭頭 -->
+    <div class="hero__slider owl-carousel">
+        <div class="hero__item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 p-0">
+                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(0).recipe_id)">
+                            <div class="hero__inside__item hero__inside__item--wide set-bg"
+                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(0).recipe_id))">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>@RecipeDetailService.ShowRecomended(0).time.Day</span>
+                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(0).time.Month)</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h4>@RecipeDetailService.ShowRecomended(0).recipe_name</h4>
+                                        <ul class="widget">
+                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(0).recipe_id)</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6  p-0">
+                        <a href="#">
+                            <div class="hero__inside__item hero__inside__item--small set-bg"
+                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowPopular(0).recipe_id))">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>@RecipeDetailService.ShowPopular(0).time.Day</span>
+                                        <p>@monthToEn(RecipeDetailService.ShowPopular(0).time.Month)</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>@RecipeDetailService.ShowPopular(0).recipe_name</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowPopular(0).recipe_id)</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="hero__inside__item hero__inside__item--small set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-3.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>好ㄘ的蘋果派3</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6  p-0">
+                        <a href="#">
+                            <div class="hero__inside__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-4.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>好ㄘ的蘋果派4</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero__item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6 p-0">
+                        <a href="#">
+                            <div class="hero__inside__item hero__inside__item--wide set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-1.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h4>好ㄘ的蘋果派1</h4>
+                                        <ul class="widget">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <a href="#">
+                            <div class="hero__inside__item hero__inside__item--small set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-3.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>好ㄘ的蘋果派3</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        <a href="#">
+                            <div class="hero__inside__item hero__inside__item--small set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-2.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>好ㄘ的蘋果派2</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-lg-3 col-md-6 p-0">
+                        <a href="#">
+                            <div class="hero__inside__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/hero/hero-4.jpg")">
+                                <div class="hero__inside__item__text">
+                                    <div class="hero__inside__item--meta">
+                                        <span>08</span>
+                                        <p>Aug</p>
+                                    </div>
+                                    <div class="hero__inside__item--text">
+                                        <h5>好ㄘ的蘋果派4</h5>
+                                        <ul class="label">
+                                            <li>by &nbsp;&nbsp;<span>王曉明</span></li>
+                                            <li>3 min read</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Hero Section End -->
+<!-- Categories Section Begin -->
+<section class="categories spad">
+    <!-- 頂端4張圖 -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-1.jpg")">
+                    <div class="categories__hover__text">
+                        <h5>早餐</h5>
+                        <p>28 份食譜</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-2.jpg")">
+                    <div class="categories__hover__text">
+                        <h5>午餐</h5>
+                        <p>28 份食譜</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-3.jpg")">
+                    <div class="categories__hover__text">
+                        <h5>下午茶</h5>
+                        <p>28 份食譜</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-4.jpg")">
+                    <div class="categories__hover__text">
+                        <h5>晚餐</h5>
+                        <p>28 份食譜</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 主要篇幅 -->
+    <div class="categories__post">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <!-- 最大的文章 -->
+                    <div class="categories__post__item categories__post__item--large">
+                        <a href="#">
+                            <div class="categories__post__item__pic set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-1.jpg")">
+                                <div class="categories__post__item__text">
+                                    <ul class="post__label--large">
+                                        <li>Aug 08</li>
+                                        <li>王曉明</li>
+                                    </ul>
+                                    <h3>烤蘋果派的方法</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <!-- 文章1 -->
+                            <div class="categories__post__item">
+                                <a href="#">
+                                    <div class="categories__post__item__pic small__item set-bg"
+                                         data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-2.jpg")">
+                                        <div class="categories__post__item__text">
+                                            <ul class="post__label--large">
+                                                <li>Aug 08</li>
+                                                <li>王小明</li>
+                                            </ul>
+                                            <h3>烤蘋果派的方法</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 文章2 -->
+                            <div class="categories__post__item">
+                                <a href="#">
+                                    <div class="categories__post__item__pic set-bg"
+                                         data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-4.jpg")">
+                                        <div class="categories__post__item__text">
+                                            <ul class="post__label--large">
+                                                <li>Aug 08</li>
+                                                <li>王小明</li>
+                                            </ul>
+                                            <h3>烤蘋果派的方法</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 文章3 -->
+                            <a href="#">
+                                <div class="categories__post__item__plain set-bg"
+                                     data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-6.jpg")">
+                                    <div class="categories__post__item__text">
+                                        <div class="post__meta">
+                                            <h4>08</h4>
+                                            <span>Aug</span>
+                                        </div>
+                                        <ul class="post__label--large">
+                                            <li>王小明</li>
+                                        </ul>
+                                        <h3>烤蘋果派的方法</h3>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-6">
+                            <!-- 文章2 -->
+                            <div class="categories__post__item">
+                                <a href="#">
+                                    <div class="categories__post__item__pic set-bg"
+                                         data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-4.jpg")">
+                                        <div class="categories__post__item__text">
+                                            <ul class="post__label--large">
+                                                <li>Aug 08</li>
+                                                <li>王小明</li>
+                                            </ul>
+                                            <h3>烤蘋果派的方法</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 文章4 -->
+                            <div class="categories__post__item">
+                                <a href="#">
+                                    <div class="categories__post__item__pic smaller__large set-bg"
+                                         data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-5.jpg")">
+                                        <div class="categories__post__item__text">
+                                            <ul class="post__label--large">
+                                                <li>Aug 08</li>
+                                                <li>王小明</li>
+                                            </ul>
+                                            <h3>烤蘋果派的方法</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <!-- 文章4 -->
+                            <div class="categories__post__item">
+                                <a href="#">
+                                    <div class="categories__post__item__pic smaller__large set-bg"
+                                         data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-5.jpg")">
+                                        <div class="categories__post__item__text">
+                                            <ul class="post__label--large">
+                                                <li>Aug 08</li>
+                                                <li>王小明</li>
+                                            </ul>
+                                            <h3>烤蘋果派的方法</h3>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <!-- 奇怪的評語 -->
+                    <div class="categories__post__item__small">
+                        <img src="@Url.Content("~/foodeiblog/img/categories/categories-post/quote.png")" alt="">
+                        <p>
+                            Lorem ipsum dolor amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt labore et dolore magna aliqua gravida.
+                        </p>
+                        <div class="posted__by">Elena T.Jaivy</div>
+                    </div>
+                    <!-- 文章2 -->
+                    <div class="categories__post__item">
+                        <a href="#">
+                            <div class="categories__post__item__pic set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-4.jpg")">
+                                <div class="categories__post__item__text">
+                                    <ul class="post__label--large">
+                                        <li>Aug 08</li>
+                                        <li>王小明</li>
+                                    </ul>
+                                    <h3>烤蘋果派的方法</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- 文章3 -->
+                    <a href="#">
+                        <div class="categories__post__item__plain set-bg"
+                             data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-6.jpg")">
+                            <div class="categories__post__item__text">
+                                <div class="post__meta">
+                                    <h4>08</h4>
+                                    <span>Aug</span>
+                                </div>
+                                <ul class="post__label--large">
+                                    <li>王小明</li>
+                                </ul>
+                                <h3>烤蘋果派的方法</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- 文章2 -->
+                    <div class="categories__post__item">
+                        <a href="#">
+                            <div class="categories__post__item__pic set-bg"
+                                 data-setbg="@Url.Content("~/foodeiblog/img/categories/categories-post/cp-4.jpg")">
+                                <div class="categories__post__item__text">
+                                    <ul class="post__label--large">
+                                        <li>Aug 08</li>
+                                        <li>王小明</li>
+                                    </ul>
+                                    <h3>烤蘋果派的方法</h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <div class="load__more__btn">
+                        <a href="#">更多食譜</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Categories Section End -->

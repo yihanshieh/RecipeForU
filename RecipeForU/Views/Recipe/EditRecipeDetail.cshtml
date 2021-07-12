@@ -1,0 +1,97 @@
+﻿@model RecipeForU.Models.ViewModel.RecipeDetailViewModel
+
+@{ 
+    ViewBag.Title = "修改食譜";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    int i = 1; 
+}
+<style>
+    .tex {
+        height: 200px;
+        width: 900px;
+    }
+</style>
+
+<div class="container-fluid">
+
+    <div class="row margin-top-login">
+        <div class="col-10 offset-1">
+            <div class="panel panel-default box-shadow">
+                <div class="row panel-heading admin-list-heading">
+                    <div class="col-12 d-flex justify-content-center align-items-center admin-list-title">@ViewBag.Title</div>
+                </div>
+                <div class="panel-body admin-list-body">
+
+                    @using (Html.BeginForm("EditRecipeDetail", "Recipe", new { id = Model.RECIPE.recipe_id }, FormMethod.Post, null))
+                    {
+                    @Html.AntiForgeryToken()
+
+                     <div class="row">
+                            <div class="col-12">
+                                <fieldset class="row">
+                                    <legend>食譜名稱</legend>
+                                    @Html.EditorFor(model => model.RECIPE.recipe_name, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RECIPE.recipe_name, "", new { @class = "text-danger" })
+                                </fieldset>
+                            </div>
+                            <div class="col-12">
+                                <fieldset class="row">
+                                    <legend>簡介</legend>
+                                    @Html.TextAreaFor(model => model.RECIPE.recipe_intro, new { @class = "form-control", @maxlength = "250" })
+                                    @Html.ValidationMessageFor(model => model.RECIPE.recipe_intro, "", new { @class = "text-danger" })
+                                </fieldset>
+                            </div>
+                     </div>
+
+                     <div class="row">
+                            <div class="col-12">
+                                <fieldset id="elementEditor" class="row">
+                                    <legend>食材</legend>
+                                    @foreach (var item in Model.eRECIPE)
+                                    {
+                                    @Html.EditorFor(model => item.element_id, new { htmlAttributes = new { @class = "form-control col-12 col-md-7" } })
+                                    @Html.ValidationMessageFor(model => item.element_id, "", new { @class = "text-danger" })
+
+                                    @Html.EditorFor(model => item.qty, new { htmlAttributes = new { @class = "form-control col-12 offset-md-1 col-md-4" } })
+                                    @Html.ValidationMessageFor(model => item.qty, "", new { @class = "text-danger" })
+                                    }
+                                </fieldset>
+                            </div>
+                     </div>
+
+                     <div class="row">
+                            <div class="col-12">
+                                <fieldset id="stepEditor" class="row">
+                                    <legend style="text-align: left;">步驟</legend>
+                                    @foreach (var item in Model.sRECIPE)
+                                    {
+                                    <h4 class="col-12 col-md-1">@i</h4>
+                                    @Html.TextAreaFor(model => item.step_body, new { @class = "form-control col-12 col-md-10", @maxlength = "250" })
+                                    @Html.ValidationMessageFor(model => item.step_body, "", new { @class = "text-danger" })
+                                    i++;
+                                    }
+                                </fieldset>
+                            </div>
+                     </div>
+
+                     <div class="row" style="margin-top:1em;">
+                         <div class="col d-flex justify-content-center">
+                             <input type="submit" class="site-btn" value="儲存" style="margin:0;margin-right:1em;" />
+                             @Html.ActionLink("返回列表", "MyList", "Recipe", null, new { @class = "table-btn" })
+                         </div>
+                     </div>
+                    }
+
+                    <div>
+                        
+                    </div>
+
+                    @section Scripts {
+                        @Scripts.Render("~/bundles/jqueryval")
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

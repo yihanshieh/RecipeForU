@@ -1,0 +1,319 @@
+USE [RecipeForU]
+GO
+/****** Object:  Table [dbo].[ELEMENT]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ELEMENT](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[category_id] [nvarchar](50) NOT NULL,
+	[category] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_ELEMENT] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[eRECIPE]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[eRECIPE](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[recipe_id] [nvarchar](50) NOT NULL,
+	[element_id] [nvarchar](50) NOT NULL,
+	[qty] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_eRECIPE] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[mELEMENT]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[mELEMENT](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[category_id] [nvarchar](50) NOT NULL,
+	[element_id] [nvarchar](50) NOT NULL,
+	[element] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_mELEMENT] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[MEMBER]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[MEMBER](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[member_type] [nvarchar](10) NOT NULL,
+	[member_id] [nvarchar](50) NOT NULL,
+	[email] [nvarchar](50) NOT NULL,
+	[password] [nvarchar](50) NOT NULL,
+	[member_name] [nvarchar](50) NOT NULL,
+	[phone] [nvarchar](50) NOT NULL,
+	[gender] [nvarchar](10) NOT NULL,
+	[birthday] [datetime] NOT NULL,
+	[occupation] [nvarchar](50) NULL,
+	[is_valid] [bit] NOT NULL,
+	[aka] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_MEMBER] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[RECIPE]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[RECIPE](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[recipe_id] [nvarchar](50) NOT NULL,
+	[step_id] [nvarchar](50) NOT NULL,
+	[recipe_name] [nvarchar](50) NOT NULL,
+	[recipe_author] [nvarchar](50) NOT NULL,
+	[time] [datetime] NOT NULL,
+	[view_times] [int] NOT NULL,
+	[recipe_intro] [nvarchar](250) NOT NULL,
+	[recipe_cover] [nvarchar](250) NULL,
+ CONSTRAINT [PK_RECIPE] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[rMEMBER]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[rMEMBER](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[member_id] [nvarchar](50) NOT NULL,
+	[recipe_id] [nvarchar](50) NOT NULL,
+ CONSTRAINT [PK_rMEMBER] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[sRECIPE]    Script Date: 2021/6/18 上午 09:24:22 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[sRECIPE](
+	[rowid] [int] IDENTITY(1,1) NOT NULL,
+	[step_id] [nvarchar](50) NOT NULL,
+	[recipe_id] [nvarchar](50) NOT NULL,
+	[step_body] [nvarchar](max) NOT NULL,
+	[step_cover] [nvarchar](250) NULL,
+ CONSTRAINT [PK_sRECIPE] PRIMARY KEY CLUSTERED 
+(
+	[rowid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[eRECIPE] ON 
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (1, N'202106010001', N'奶油乳酪
+', N'200g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (2, N'202106010001', N'優格
+', N'40g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (3, N'202106010001', N'檸檬汁
+', N'20g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (4, N'202106010001', N'奶油', N'40g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (5, N'202106010001', N'焦糖頻果醬', N'150g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (6, N'202106010001', N'鮮奶油', N'150ml')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (7, N'202106010001', N'糖', N'30g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (8, N'202106010001', N'消化餅乾', N'3片')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (9, N'202106010001', N'鹽', N'少許')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (10, N'202106010001', N'焦糖奶油醬', N'80g')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (25, N'202106170001', N'n', N'n')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (26, N'202106170001', N'n', N'n')
+GO
+SET IDENTITY_INSERT [dbo].[eRECIPE] OFF
+GO
+SET IDENTITY_INSERT [dbo].[MEMBER] ON 
+GO
+INSERT [dbo].[MEMBER] ([rowid], [member_type], [member_id], [email], [password], [member_name], [phone], [gender], [birthday], [occupation], [is_valid], [aka]) VALUES (1, N'A', N'A0001', N'eee@gmail.com', N'ej5rFst19I+4l+/zrnMvMVT20gO1PzNmDwG0w7a8Lfk=', N'密碼001', N'0987654321', N'F', CAST(N'2021-01-01T00:00:00.000' AS DateTime), NULL, 1, N'管理員1號')
+GO
+INSERT [dbo].[MEMBER] ([rowid], [member_type], [member_id], [email], [password], [member_name], [phone], [gender], [birthday], [occupation], [is_valid], [aka]) VALUES (2, N'U', N'U0001', N'ddd@gmail.com', N'ej5rFst19I+4l+/zrnMvMVT20gO1PzNmDwG0w7a8Lfk=', N'密碼也是001', N'0987654321', N'F', CAST(N'2021-01-01T00:00:00.000' AS DateTime), NULL, 1, N'標準型使用者')
+GO
+SET IDENTITY_INSERT [dbo].[MEMBER] OFF
+GO
+SET IDENTITY_INSERT [dbo].[RECIPE] ON 
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [step_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover]) VALUES (1, N'202106010001', N'0', N'焦糖蘋果生乳酪', N'U0001', CAST(N'2021-06-01T00:00:00.000' AS DateTime), 2, N'生乳酪蛋糕的做法非常簡單，而且好吃到爆。我自己做了好幾次原味的生乳酪蛋糕，偶爾想換換口味，因此設計了這款裡面多一層焦糖蘋果醬 ，最後再淋上焦糖奶油醬，吃起來非常有層次，很好吃！', N'')
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [step_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover]) VALUES (23, N'202106170001', N'0', N'n', N'0', CAST(N'2021-06-17T21:43:05.000' AS DateTime), 0, N'n', N'0')
+GO
+SET IDENTITY_INSERT [dbo].[RECIPE] OFF
+GO
+SET IDENTITY_INSERT [dbo].[sRECIPE] ON 
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (1, N'2021060100010001', N'202106010001', N'這裡是此款起司蛋糕全部所需的食材，但此篇主要為生乳酪與最後組合步驟。', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (2, N'2021060100010002', N'202106010001', N'奶油加熱融化備用、奶油乳酪(cream cheese)從冰箱取出在室溫放軟。', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (3, N'2021060100010003', N'202106010001', N'消化餅乾丟進夾鏈袋，我是用可重複使用的矽膠食物袋。', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (4, N'2021060100010004', N'202106010001', N'捏爆餅乾，越碎越好', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (5, N'2021060100010005', N'202106010001', N'混合餅乾碎、融化好的奶油、鹽', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (6, N'2021060100010006', N'202106010001', N'平均鋪在烤模中，盡量將餅乾壓緊，送入冰箱冷藏', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (8, N'2021060100010007', N'202106010001', N'放軟的奶油乳酪(用手指可以輕易按出凹陷的程度)加入砂糖', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (9, N'2021060100010008', N'202106010001', N'將奶油乳酪與砂糖攪打均勻
+', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (10, N'2021060100010009', N'202106010001', N'從冰箱拿出鮮奶油，打至9分發(不會流動的程度)，奶油乳酪要放軟再打，但鮮奶油要冰才好打', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (11, N'20210601000100010', N'202106010001', N'剛剛打好的乳酪加入打發鮮奶油、檸檬汁、優格。我覺得優格很重要，雖然沒有優格也可以做，但味道就少了一點層次。有加優格吃起來會很高級！', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (12, N'20210601000100011', N'202106010001', N'把大家混合均勻，生乳酪餡就完成了！這時候可以試試味道，應該會是好吃到爆', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (13, N'20210601000100012', N'202106010001', N'拿出冰好的餅乾，先塗上一層乳酪餡', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (14, N'20210601000100013', N'202106010001', N'第二層塗焦糖蘋果醬，我覺得蘋果醬有點甜所以不要塗太厚。
+', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (15, N'20210601000100014', N'202106010001', N'抹上第二層乳酪餡', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (16, N'20210601000100015', N'202106010001', N'第一層不平沒關係，第二層會影響到外觀，盡量弄平一點', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (17, N'20210601000100016', N'202106010001', N'最後淋上焦糖醬！你看吧，這時候乳酪餡不夠平就會被發現！但是不管了先冰起來，至少冷藏八小時。', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (18, N'20210601000100017', N'202106010001', N'完成!', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (26, N'2021060600020005', N'202106060002', N'所有食材炒一炒', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (27, N'2021060600020006', N'202106060002', N'加水煮滾', NULL)
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (37, N'2021061700010001', N'202106170001', N'n', N'0')
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (38, N'2021061700010002', N'202106170001', N'n', N'0')
+GO
+SET IDENTITY_INSERT [dbo].[sRECIPE] OFF
+GO
+ALTER TABLE [dbo].[MEMBER] ADD  DEFAULT ((0)) FOR [is_valid]
+GO
+ALTER TABLE [dbo].[MEMBER] ADD  DEFAULT ((0)) FOR [aka]
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ELEMENT', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具分類編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ELEMENT', @level2type=N'COLUMN',@level2name=N'category_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具分類' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ELEMENT', @level2type=N'COLUMN',@level2name=N'category'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'網站食材/廚具資料表_主檔' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'ELEMENT'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'eRECIPE', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'eRECIPE', @level2type=N'COLUMN',@level2name=N'recipe_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'eRECIPE', @level2type=N'COLUMN',@level2name=N'element_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'用量' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'eRECIPE', @level2type=N'COLUMN',@level2name=N'qty'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜資料表_明細檔_食材/廚具' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'eRECIPE'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'mELEMENT', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具分類編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'mELEMENT', @level2type=N'COLUMN',@level2name=N'category_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'mELEMENT', @level2type=N'COLUMN',@level2name=N'element_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食材/廚具名稱' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'mELEMENT', @level2type=N'COLUMN',@level2name=N'element'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'網站食材資料表_明細檔' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'mELEMENT'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'身分別' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'member_type'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'會員編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'member_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'E-mail' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'email'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'密碼' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'password'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'使用者姓名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'member_name'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'電話' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'phone'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'性別' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'gender'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'生日' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'birthday'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'職業' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'occupation'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'信箱驗證' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'is_valid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'別名' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER', @level2type=N'COLUMN',@level2name=N'aka'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'會員資料表_主檔' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'MEMBER'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'recipe_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'步驟編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'step_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜名稱' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'recipe_name'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜作者' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'recipe_author'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'建立時間' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'time'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'觀看次數' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'view_times'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜介紹' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'recipe_intro'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜封面圖片' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE', @level2type=N'COLUMN',@level2name=N'recipe_cover'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜資料表_主檔' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'RECIPE'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'rMEMBER', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'會員編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'rMEMBER', @level2type=N'COLUMN',@level2name=N'member_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'rMEMBER', @level2type=N'COLUMN',@level2name=N'recipe_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'會員資料表_明細檔_收藏食譜' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'rMEMBER'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'PK' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE', @level2type=N'COLUMN',@level2name=N'rowid'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'步驟編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE', @level2type=N'COLUMN',@level2name=N'step_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜編號' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE', @level2type=N'COLUMN',@level2name=N'recipe_id'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'步驟內容' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE', @level2type=N'COLUMN',@level2name=N'step_body'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'圖片連結' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE', @level2type=N'COLUMN',@level2name=N'step_cover'
+GO
+EXEC sys.sp_addextendedproperty @name=N'MS_Description', @value=N'食譜資料表_明細檔_步驟' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'sRECIPE'
+GO

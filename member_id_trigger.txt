@@ -1,0 +1,41 @@
+USE [RecipeForU]
+GO
+/****** Object:  Trigger [dbo].[tr]    Script Date: 2021/5/29 上午 02:51:48 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		del
+-- Create date: 2021/05/29
+-- Description:	member_id_trigger
+-- =============================================
+CREATE TRIGGER [dbo].[mid_tr]
+   ON  [dbo].[MEMBER]
+   AFTER INSERT,DELETE,UPDATE
+AS 
+BEGIN
+	SET NOCOUNT ON;
+
+	DECLARE @command nvarchar(50)
+	DECLARE @rowid int
+	DECLARE @member_type nvarchar(10)
+	DECLARE @id nvarchar(50)
+	DECLARE @prev_id nvarchar(50)
+	DECLARE @prev_idno int
+
+	IF EXISTS(SELECT * FROM inserted) AND NOT EXISTS(SELECT * FROM deleted) SET @command = 'INSERT'
+	IF NOT EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted) SET @command = 'DELETE'
+	IF EXISTS(SELECT * FROM inserted) AND EXISTS(SELECT * FROM deleted) SET @command = 'UPDATE'
+
+	IF (@command = 'INSERT')
+	BEGIN
+		SET @rowid = (SELECT rowid FROM inserted)
+		SET @member_type = (SELECT member_type FROM inserted)
+		SET @prev_id = (SELECT TOP 1 member_id FROM [dbo].[MEMBER] WHERE member_type=@member_type ORDER BY CAST(RIGHT(member_id,4) AS int) DESC)
+		SET @prev_idno=CAST(RIGHT(@prev_id, LEN(@prev_id)-1) AS int)
+		SET @id=@member_type+'000'+CAST(@prev_idno+1 AS varchar(4))
+		UPDATE [dbo].[MEMBER] SET member_id = @id WHERE rowid = @rowid
+	END
+
+END

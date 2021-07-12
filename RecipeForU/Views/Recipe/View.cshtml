@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<!-- template from http://getbootstrap.com/getting-started -->
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>新增食譜</title>
+
+    <!-- CSS Includes -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+
+    <style type="text/css">
+
+        .field-validation-error {
+            color: #ff0000;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="click_advance"><i class="icon-circle-arrow-down"></i> Advanced search</p>
+    <div id="display_advance">
+        <p>This is the advance search</p>
+    </div>
+   
+
+    <!-- JS includes -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="//ajax.aspnetcdn.com/ajax/mvc/4.0/jquery.validate.unobtrusive.min.js"></script>
+
+    <script>
+        $('#click_advance').click(function () {
+            $('#display_advance').toggle('1000');
+            $("i", this).toggleClass("icon-circle-arrow-up icon-circle-arrow-down");
+        });
+    </script>
+
+</body>
+</html>
+
