@@ -223,7 +223,7 @@ namespace RecipeForU.Controllers
         public ActionResult SaveRecipe()
         {
             RecipeService.AddRecipeData();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Home");
         }
 
         //[AllowAnonymous]

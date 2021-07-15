@@ -15,11 +15,6 @@
                 <div class="col-5 col-md-3 d-flex justify-content-end align-items-center">@Html.ActionLink("新增食譜", "AddRecipe", "Recipe", null, new { @class = "table-btn" })</div>
             </div>
             <div class="row panel-body admin-list-body">
-                @using (Html.BeginForm("Serch", "RecipeSerching", FormMethod.Post, new { @id = "SerchForm", @class = "col-12 search_form" }))
-                {
-                    <input type="search" id="keyword" name="keyword" class="form-control col-6 col-md-4" placeholder="食譜查詢" />
-                    <button type="submit" class="site-btn">查詢</button>
-                }
                 <table class="col-12 table">
                     <tr>
                         <th>
@@ -38,7 +33,7 @@
                             @Html.DisplayNameFor(model => model.view_times)
                         </th>
                         <th>
-                            推薦次數
+                            收藏次數
                         </th>
                         <th></th>
                     </tr>
