@@ -33,7 +33,7 @@
                                 @Html.DisplayFor(modelItem => item.recipe_name)
                             </td>
                             <td>
-                                @Html.DisplayFor(modelItem => item.recipe_author)
+                                @RecipeDetailService.GetRecipeAuthorById(item.recipe_id)
                             </td>
                         </tr>
                     }
