@@ -14,7 +14,7 @@ public class RecipeDetailService
     {
         using (RecipeForUEntities db = new RecipeForUEntities())
         {
-            var datas = db.RECIPE.Where(m => m.recommended == true).OrderBy(m => m.time).ToList();
+            var datas = db.RECIPE.Where(m => m.recommended == true).OrderByDescending(m => m.view_times).ToList();
             var oneatatime = datas[place];
             return oneatatime;
         }
@@ -24,7 +24,7 @@ public class RecipeDetailService
     {
         using (RecipeForUEntities db = new RecipeForUEntities())
         {
-            var datas = db.RECIPE.OrderBy(m => m.time).ToList();
+            var datas = db.RECIPE.OrderByDescending(m => m.view_times).ToList();
             var oneatatime = datas[place];
             return oneatatime;
         }
