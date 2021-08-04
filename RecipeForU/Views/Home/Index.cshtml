@@ -203,224 +203,53 @@
     </div>
 </section>
 <!-- Hero Section End -->
-<!-- 臨時Hero Section -->
-<section class="hero">
-    @*改了main.js，拿掉箭頭*@
-    <div class="hero__slider owl-carousel">
-        <div class="hero__item">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-center align-items-center">
-                        <h2>推薦食譜</h2>
-                    </div>
-                    <div class="col-lg-6 p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(0).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--wide set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(0).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(0).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(0).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h4>@RecipeDetailService.ShowRecomended(0).recipe_name</h4>
-                                        <ul class="widget">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(0).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6  p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(1).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--small set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(1).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(1).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(1).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(1).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(1).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(2).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--small set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(2).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(2).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(2).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(2).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(2).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6  p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(3).recipe_id)">
-                            <div class="hero__inside__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(3).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(3).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(3).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(3).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(3).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="hero__item">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12 d-flex justify-content-center align-items-center">
-                        <h2>推薦食譜</h2>
-                    </div>
-                    <div class="col-lg-6 p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(4).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--wide set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(4).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(4).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(4).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(4).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(4).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(5).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--small set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(5).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(5).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(5).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(5).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(5).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(6).recipe_id)">
-                            <div class="hero__inside__item hero__inside__item--small set-bg"
-                                 data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(6).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(6).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(6).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(6).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(6).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-lg-3 col-md-6 p-0">
-                        <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(7).recipe_id)">
-                            <div class="hero__inside__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(7).recipe_id))">
-                                <div class="hero__inside__item__text">
-                                    <div class="hero__inside__item--meta">
-                                        <span>@RecipeDetailService.ShowRecomended(7).time.Day</span>
-                                        <p>@monthToEn(RecipeDetailService.ShowRecomended(7).time.Month)</p>
-                                    </div>
-                                    <div class="hero__inside__item--text">
-                                        <h5>@RecipeDetailService.ShowRecomended(7).recipe_name</h5>
-                                        <ul class="label">
-                                            <li>by &nbsp;&nbsp;<span>@RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(7).recipe_id)</span></li>
-                                            <li>3 min read</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Hero Section End -->
 <!-- Categories Section Begin -->
 <section class="categories spad">
     <!-- 頂端4張圖 -->
     <div class="container">
         <div class="row">
-            @*<div class="col-12 d-flex justify-content-center align-items-center">
+            <div class="col-12 d-flex justify-content-center align-items-center">
                     <h2>推薦食譜</h2>
-                </div>*@
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-1.jpg")">
-                    <div class="categories__hover__text">
-                        <h5>早餐</h5>
-                        <p>28 份食譜</p>
-                    </div>
                 </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(0).recipe_id)">
+                    <div class="categories__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(0).recipe_id))">
+                        <div class="categories__hover__text">
+                            <h5>@RecipeDetailService.ShowRecomended(0).recipe_name</h5>
+                            <p>by @RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(0).recipe_id)</p>
+                        </div>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-2.jpg")">
-                    <div class="categories__hover__text">
-                        <h5>午餐</h5>
-                        <p>28 份食譜</p>
+                <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(1).recipe_id)">
+                    <div class="categories__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(1).recipe_id))">
+                        <div class="categories__hover__text">
+                            <h5>@RecipeDetailService.ShowRecomended(1).recipe_name</h5>
+                            <p>by @RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(1).recipe_id)</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-3.jpg")">
-                    <div class="categories__hover__text">
-                        <h5>下午茶</h5>
-                        <p>28 份食譜</p>
+                <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(2).recipe_id)">
+                    <div class="categories__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(2).recipe_id))">
+                        <div class="categories__hover__text">
+                            <h5>@RecipeDetailService.ShowRecomended(2).recipe_name</h5>
+                            <p>by @RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(2).recipe_id)</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="categories__item set-bg" data-setbg="@Url.Content("~/foodeiblog/img/categories/cat-4.jpg")">
-                    <div class="categories__hover__text">
-                        <h5>晚餐</h5>
-                        <p>28 份食譜</p>
+                <a href="@Url.Content("~/Recipe/RecipeDetail/" + RecipeDetailService.ShowRecomended(3).recipe_id)">
+                    <div class="categories__item set-bg" data-setbg="@Url.Content(@RecipeDetails.GetRecipeImage(RecipeDetailService.ShowRecomended(3).recipe_id))">
+                        <div class="categories__hover__text">
+                            <h5>@RecipeDetailService.ShowRecomended(3).recipe_name</h5>
+                            <p>by @RecipeDetailService.GetRecipeAuthorById(@RecipeDetailService.ShowRecomended(3).recipe_id)</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div>
         </div>
     </div>
