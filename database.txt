@@ -1,6 +1,6 @@
 USE [RecipeForU]
 GO
-/****** Object:  Table [dbo].[ELEMENT]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[ELEMENT]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -15,7 +15,7 @@ CREATE TABLE [dbo].[ELEMENT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[eRECIPE]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[eRECIPE]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -31,7 +31,7 @@ CREATE TABLE [dbo].[eRECIPE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[mELEMENT]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[mELEMENT]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -47,7 +47,7 @@ CREATE TABLE [dbo].[mELEMENT](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[MEMBER]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[MEMBER]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -71,7 +71,7 @@ CREATE TABLE [dbo].[MEMBER](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[RECIPE]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[RECIPE]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -92,7 +92,7 @@ CREATE TABLE [dbo].[RECIPE](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[rMEMBER]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[rMEMBER]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -107,7 +107,7 @@ CREATE TABLE [dbo].[rMEMBER](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[sRECIPE]    Script Date: 2021/6/27 下午 01:01:12 ******/
+/****** Object:  Table [dbo].[sRECIPE]    Script Date: 2021/8/4 下午 10:49:59 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -156,17 +156,17 @@ INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (35, N
 GO
 INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (36, N'尚未編號', N'5', N'5')
 GO
-INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (37, N'2021062415064378_cc807b083318459', N'd', N'd')
-GO
 INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (38, N'2021062415064378_cc807b083318459', N'd', N'd')
 GO
-INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (39, N'2021062415093914_08658c289eef473', N'g', N'g')
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (41, N'2021071510175039_5043d23b3f714f5', N'test2', N'test2')
+GO
+INSERT [dbo].[eRECIPE] ([rowid], [recipe_id], [element_id], [qty]) VALUES (1040, N'2021071909180624_d09477c469c44cd', N'A', N'B')
 GO
 SET IDENTITY_INSERT [dbo].[eRECIPE] OFF
 GO
 SET IDENTITY_INSERT [dbo].[MEMBER] ON 
 GO
-INSERT [dbo].[MEMBER] ([rowid], [member_type], [member_id], [email], [password], [member_name], [phone], [gender], [birthday], [occupation], [is_valid], [aka]) VALUES (1, N'A', N'A0001', N'eee@gmail.com', N'ej5rFst19I+4l+/zrnMvMVT20gO1PzNmDwG0w7a8Lfk=', N'密碼001', N'0987654321', N'F', CAST(N'2021-01-01T00:00:00.000' AS DateTime), N'', 1, N'管理員1號')
+INSERT [dbo].[MEMBER] ([rowid], [member_type], [member_id], [email], [password], [member_name], [phone], [gender], [birthday], [occupation], [is_valid], [aka]) VALUES (1, N'A', N'A0001', N'eee@gmail.com', N'ej5rFst19I+4l+/zrnMvMVT20gO1PzNmDwG0w7a8Lfk=', N'密碼001', N'0987654321', N'女', CAST(N'1995-08-06T00:00:00.000' AS DateTime), NULL, 1, N'管理員1號')
 GO
 INSERT [dbo].[MEMBER] ([rowid], [member_type], [member_id], [email], [password], [member_name], [phone], [gender], [birthday], [occupation], [is_valid], [aka]) VALUES (2, N'U', N'U0001', N'ddd@gmail.com', N'ej5rFst19I+4l+/zrnMvMVT20gO1PzNmDwG0w7a8Lfk=', N'密碼也是001', N'0987654321', N'女', CAST(N'2021-01-01T00:00:00.000' AS DateTime), NULL, 1, N'標準型使用者')
 GO
@@ -174,17 +174,72 @@ SET IDENTITY_INSERT [dbo].[MEMBER] OFF
 GO
 SET IDENTITY_INSERT [dbo].[RECIPE] ON 
 GO
-INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (1, N'202106010001', N'焦糖蘋果生乳酪', N'U0001', CAST(N'2021-06-01T00:00:00.000' AS DateTime), 106, N'生乳酪蛋糕的做法非常簡單，而且好吃到爆。我自己做了好幾次原味的生乳酪蛋糕，偶爾想換換口味，因此設計了這款裡面多一層焦糖蘋果醬 ，最後再淋上焦糖奶油醬，吃起來非常有層次，很好吃！', N'', 1)
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (1, N'202106010001', N'焦糖蘋果生乳酪', N'U0001', CAST(N'2021-06-01T00:00:00.000' AS DateTime), 138, N'生乳酪蛋糕的做法非常簡單，而且好吃到爆。我自己做了好幾次原味的生乳酪蛋糕，偶爾想換換口味，因此設計了這款裡面多一層焦糖蘋果醬 ，最後再淋上焦糖奶油醬，吃起來非常有層次，很好吃！', N'', 1)
 GO
-INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (35, N'2021062415064378_cc807b083318459', N'f', N'A0001', CAST(N'2021-06-24T15:08:53.447' AS DateTime), 0, N'f', N'2021062415064378_cc807b083318459', 0)
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2038, N'2021071901024264_65925b224b4f491', N'柔軟綿密蜂蜜蛋糕', N'U0001', CAST(N'2021-07-19T01:03:20.787' AS DateTime), 345, N'加入龍眼蜂蜜，天然的好味道，吃過之後會讓人永遠記得那份甜蜜幸福的好味道', N'2021071901024264_65925b224b4f491', 0)
 GO
-INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (36, N'2021062415093914_08658c289eef473', N'g', N'A0001', CAST(N'2021-06-24T15:09:58.260' AS DateTime), 0, N'g', N'2021062415093914_08658c289eef473', 0)
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2039, N'2021071901032742_c45e57b9fe114bf', N'焦糖蒸布丁', N'U0001', CAST(N'2021-07-19T01:04:12.930' AS DateTime), 767, N'距離夏天的腳步越來越近，總是喜歡飯後來一道冰涼的甜點，挖一口滑嫩的布丁，入口後伴隨著香草和焦糖的甜蜜滋味，令人有滿滿的幸福感!', N'2021071901032742_c45e57b9fe114bf', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2040, N'2021071901051720_00f79f75902b4b8', N'曲奇小餅乾', N'U0001', CAST(N'2021-07-19T01:05:54.910' AS DateTime), 9851, N'最近又嘴饞了 來試試這個吧', N'2021071901051720_00f79f75902b4b8', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2041, N'2021071901065750_9eacca6fa8f647b', N'白巧抹茶戚風蛋糕', N'U0001', CAST(N'2021-07-19T01:07:25.427' AS DateTime), 564, N'這是一個突如其來的發想，原本只是想用剩餘的食材做一個蛋糕致贈給朋友做生日蛋糕，沒想到意外做出一個好吃又美麗的蛋糕！！', N'2021071901065750_9eacca6fa8f647b', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2042, N'2021071901083730_d43fe16f0ab7488', N'外脆內軟的濃巧克力布朗尼 ', N'U0001', CAST(N'2021-07-19T01:09:10.783' AS DateTime), 463, N'外脆內軟的濃巧克力布朗尼 ', N'2021071901083730_d43fe16f0ab7488', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2043, N'2021071901195386_7902db593899493', N'無蛋黃酥🥮無奶油🐰無麵粉', N'U0001', CAST(N'2021-07-19T01:20:29.677' AS DateTime), 766, N'為了對小麥、蛋白、牛奶過敏的女兒，改良了蛋黃酥，低糖、低油更健康了👍', N'2021071901195386_7902db593899493', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2044, N'2021071901203273_eb21acbaaa26493', N'火腿蔥花麵包', N'U0001', CAST(N'2021-07-19T01:21:02.673' AS DateTime), 993, N'鹹麵包是我們家的首選～
+一口接著一口停不下來呀！', N'2021071901203273_eb21acbaaa26493', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2045, N'2021071901210570_2429462cb4094c5', N'古早味海綿蛋糕', N'U0001', CAST(N'2021-07-19T01:21:29.910' AS DateTime), 453, N'簡單就是美味，百吃不腻海綿蛋糕。此款蛋糕體質軟綿，口感細密，簡單好上手，你也可以。', N'2021071901210570_2429462cb4094c5', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2046, N'2021071901213407_99dd9b0d9776415', N'可可杏仁酥脆餅乾', N'U0001', CAST(N'2021-07-19T01:22:01.090' AS DateTime), 433, N'可可杏仁餅乾外面買貴商商😂
+濃濃的可可香氣，香氣四溢😍
+自己動手作，成就感十足💪
+大人小孩都買單💜
+送禮也誠意十足啊💪', N'2021071901213407_99dd9b0d9776415', 0)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2047, N'2021071901544273_a782bd75e5524b7', N'低脂低糖芒果冰淇淋', N'A0001', CAST(N'2021-07-19T01:55:14.500' AS DateTime), 1, N'夏天想吃冰又怕胖，單純用芒果和無糖優格打造低糖、低脂又健康的芒果冰淇淋，完全不加一滴水、一瓢糖，嚐起來清爽無負擔！', N'2021071901544273_a782bd75e5524b7', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2048, N'2021071901551887_e26ead34fc9042e', N'🥭芒果奶酪 (芒果花🌼)', N'A0001', CAST(N'2021-07-19T01:55:46.593' AS DateTime), 0, N'這算是懶人版本的芒果奶酪!', N'2021071901551887_e26ead34fc9042e', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2049, N'2021071901561603_e3debd2bcf3b43b', N'南瓜圓', N'A0001', CAST(N'2021-07-19T01:56:46.613' AS DateTime), 0, N'一般芋圓的作法泥與粉的比例約莫是2:1
+但南瓜水分較多所需的粉量也比較多，而且每顆南瓜含水量也不同建議在加粉的時候最好分批加入，加到成糰不沾手即可，加一點點太白粉是為了讓南瓜圓吃起來更Q彈', N'2021071901561603_e3debd2bcf3b43b', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2050, N'2021071901571013_e3da36cb6ad040d', N'楊枝甘露～(芒果料理🥭)', N'A0001', CAST(N'2021-07-19T01:57:39.767' AS DateTime), 0, N'葡萄柚的酸跟芒果的甜加在一起就是啵棒!', N'2021071901571013_e3da36cb6ad040d', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2051, N'2021071901575444_a945f6b6447c464', N'椰香芒果紫米露', N'A0001', CAST(N'2021-07-19T01:58:17.820' AS DateTime), 0, N'紫米煮的略為濕潤，好入喉又有口感，加上當季盛產的芒果，椰香果香在嘴裡化開，是受歡迎又經典的夏日風情', N'2021071901575444_a945f6b6447c464', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2052, N'2021071901582402_cebe4e2331e6411', N'紅龍果香蕉冰淇淋～低糖低卡無添加', N'A0001', CAST(N'2021-07-19T01:58:47.937' AS DateTime), 0, N'無添加糖、人工香料、乳製品等添加物，簡單利用冷凍香蕉當作乳化劑，把兩種水果藉由果汁機混拌，輕鬆就可以完成口感接近冰淇淋的冰品，也是一道很適合在家中和孩子一起親子手作的健康冰淇淋！🍦', N'2021071901582402_cebe4e2331e6411', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2053, N'2021071901585301_a170da9be4b144e', N'黑糖蕨餅/粉粿/涼糕，自製黑糖蜜', N'A0001', CAST(N'2021-07-19T01:59:18.933' AS DateTime), 0, N'黑糖蕨餅QQ軟軟、冰冰涼涼，沾滿豆香四溢的黃豆粉再配上自製黑糖蜜，這個鐵三角組合太無敵了，簡單的手作茶點，很適合吹著微風的春天午後。', N'2021071901585301_a170da9be4b144e', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2054, N'2021071901592993_4793bf57925d4c4', N'雪碧情人果', N'A0001', CAST(N'2021-07-19T01:59:52.210' AS DateTime), 0, N'今年芒果花盛開結果率不錯
+芒果品質預計會相當的不錯
+芒果青是芒果為了增加品質和甜度疏果時淘汰採下的未成熟芒果
+製成的情人果裡、香味最濃最有芒果的酸甜滋味
+首推台灣土芒果、果香濃郁.
+情人果冰凍雪藏起來
+炎炎夏日.冰涼爽口酸酸甜甜的滋味
+尤其是吃了油膩的菜餚.當成餐點後解膩的甜點', N'2021071901592993_4793bf57925d4c4', 1)
+GO
+INSERT [dbo].[RECIPE] ([rowid], [recipe_id], [recipe_name], [recipe_author], [time], [view_times], [recipe_intro], [recipe_cover], [recommended]) VALUES (2055, N'2021071909180624_d09477c469c44cd', N'A', N'A0001', CAST(N'2021-07-19T09:19:02.737' AS DateTime), 2, N'B', N'2021071909180624_d09477c469c44cd', 0)
 GO
 SET IDENTITY_INSERT [dbo].[RECIPE] OFF
 GO
 SET IDENTITY_INSERT [dbo].[rMEMBER] ON 
 GO
-INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (16, N'A0001', N'202106010001')
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (1017, N'A0001', N'202106010001')
+GO
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (2020, N'U0001', N'2021071901032742_c45e57b9fe114bf')
+GO
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (2021, N'U0001', N'2021071901544273_a782bd75e5524b7')
+GO
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (2023, N'A0001', N'2021071901203273_eb21acbaaa26493')
+GO
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (2024, N'U0001', N'2021071901203273_eb21acbaaa26493')
+GO
+INSERT [dbo].[rMEMBER] ([rowid], [member_id], [recipe_id]) VALUES (2030, N'U0001', N'2021071901051720_00f79f75902b4b8')
 GO
 SET IDENTITY_INSERT [dbo].[rMEMBER] OFF
 GO
@@ -232,7 +287,9 @@ INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cove
 GO
 INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (64, N'0', N'尚未編號', N'5', N'0')
 GO
-INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (65, N'01', N'2021062415093914_08658c289eef473', N'g', N'2021062415095254_5ed800d23d41453')
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (68, N'02', N'2021071510175039_5043d23b3f714f5', N'03', N'2021071510185898_b68fc445c06947b')
+GO
+INSERT [dbo].[sRECIPE] ([rowid], [step_id], [recipe_id], [step_body], [step_cover]) VALUES (1067, N'01', N'2021071909180624_d09477c469c44cd', N'A', N'2021071909184619_3ad7884fc9ec4cc')
 GO
 SET IDENTITY_INSERT [dbo].[sRECIPE] OFF
 GO
